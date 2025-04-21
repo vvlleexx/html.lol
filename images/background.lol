@@ -1,1 +1,2 @@
-<img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://i.pinimg.com/564x/22/83/12/228312c7544975ae9b3e92e0b1213aa9.jpg">
+<!DOCTYPE html>
+<body style="background-image: url('https://media.tenor.com/Cn4VO6vi-m4AAAAM/scenecore-stars.gif'); background-size: cover;">
