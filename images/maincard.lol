@@ -1,36 +1,3 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centered HTML Example</title>
-  <style>
-    /* Styles for centering the new HTML element */
-    .centered-html {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      background-color: #f0f0f0;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-</head>
-<body>
-  <!-- Centered HTML content -->
-  <div class="centered-html">
-    <h1>Welcome to My Page!</h1>
-    <p>This is a centered message displayed above the rest of the content.</p>
-  </div>
-
-  <!-- Existing HTML content -->
-  <div>
-    <!-- Your existing code goes here -->
-    <p>This is your current content.</p>
-  </div>
-</body>
-</html>
+style="color:#4F445E">1</b><b style="color:#534F5B">1</b><b style="color:#4F5057">0</b><b style="color:#4F4C57">0</b><b style="color:#4E4A56">1</b><b style="color:#494354">0</b><b style="color:#444051">1</b><b style="color:#515158">0</b><b style="color:#4D4F58">0</b><b style="color:#4F4E59">1</b><b style="color:#4E4859">1</b><b style="color:#453D5C">1</b><b style="color:#423B5C">0</b><b style="color:#504B5B">0</b><b style="color:#58525C">0</b><b style="color:#504E59">1</b><b style="color:#4C4755">0</b><b style="color:#4A4253">1</b><b style="color:#4D4155">0</b><b style="color:#504C58">1</b><b style="color:#4D515B">0</b><b style="color:#535058">0</b><b style="color:#514D59">1</b><b style="color:#48435D">1</b><b style="color:#443B5D">0</b><b style="color:#4C425D">1</b><b style="color:#534F5C">1</b><b style="color:#5C5262">1</b><b style="color:#4F505B">1</b><b style="color:#4F4A58">1</b><b style="color:#4B4355">1</b><b style="color:#4F4656">0</b><b style="color:#54515C">1</b><b style="color:#52545C">0</b><b style="color:#53525C">0</b><b style="color:#524C5D">1</b><b style="color:#4F455A">1</b><b style="color:#4A3E5D">0</b><b style="color:#49435E">0</b><b style="color:#514F5D">1</b><b style="color:#5C5162">0</b><b style="color:#58525F">1</b><b style="color:#4F505D">0</b><b style="color:#4C4A60">0</b><b style="color:#4A465B">1</b><b style="color:#57525D">0</b><b style="color:#334161">1</b><b style="color:#162961">0</b>
+</pre>
