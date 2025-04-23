@@ -1,48 +1,109 @@
-DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Centered Content with Margins</title>
-<style>
-  body {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
-    margin: 0; /* Remove default body margins */
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Background with Centered Content and Comments</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/90/25/63/902563cf54d7164b76b5299922dca160.gif'); /* Replace with your GIF file path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* To position the comment icon */
+        }
 
-  .container {
-    text-align: center; /* Center the GIF within the container */
-    width: 60%; /* Occupy roughly 3/5th of the screen width (leaving 1/5th on each side for margins) */
-    margin: 0 auto; /* Center the container horizontally */
-  }
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for content */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 5%; /* Small margins around the content */
+            max-width: 90%; /* Ensure it doesn't get too wide on large screens */
+            text-align: center; /* Center the text inside */
+        }
 
-  img {
-    display: block; /* Prevent extra space below the image */
-    margin: 0 auto; /* Center the GIF horizontally within its container */
-    max-width: 100%; /* Ensure the GIF doesn't exceed the container width */
-    height: auto; /* Maintain aspect ratio */
-  }
+        #comment-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #f9a7b0; /* Pastel pink */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10; /* Ensure it's on top */
+        }
 
-  .content {
-    margin: calc(20vh) auto; /* Roughly 1/5th of the viewport height for top and bottom margins, auto for horizontal centering */
-    width: 60%; /* Match the container width */
-    text-align: center; /* Center the text content */
-    border: 1px solid #ccc; /* Just for visualization */
-    padding: 20px; /* Add some padding inside the content area */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
-</style>
+        #comment-window {
+            position: fixed;
+            bottom: 65px;
+            right: 20px;
+            background-color: black;
+            color: #f9a7b0; /* Pastel pink */
+            border: 1px solid #f9a7b0;
+            border-radius: 5px;
+            padding: 10px;
+            width: 250px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            gap: 5px;
+            z-index: 10;
+        }
+
+        #comment-input-area {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 5px;
+            border: 1px solid #f9a7b0;
+            border-radius: 3px;
+            background-color: #222;
+            color: #f9a7b0;
+            box-sizing: border-box; /* Prevent padding from increasing width */
+            font-size: 14px;
+        }
+
+        #submit-comment-btn {
+            background-color: #555;
+            color: #f9a7b0;
+            border: none;
+            border-radius: 3px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #submit-comment-btn:hover {
+            background-color: #777;
+        }
+
+        .comment {
+            border-bottom: 1px solid #555;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-
-  <div class="container">
-    <img src="https://i.pinimg.com/originals/90/25/63/902563cf54d7164b76b5299922dca160.gif" alt="Centered GIF">
-  </div>
-
-  <div class="content">
-    <h1><pre id="tiresult" style="font-size: 9px; background-color: #000000; font-weight: bold; padding: 4px 5px; --fs: 9px;"><b style="color:#8F97DD">1</b><b style="color:#8D99DB">0</b><b style="color:#8B95DC">1</b><b style="color:#8C95DC">1</b><b style="color:#8A94DA">1</b><b style="color:#8793D9">0</b><b style="color:#8592DB">1</b><b style="color:#8692DB">0</b><b style="color:#8493D9">1</b><b style="color:#8391DA">1</b><b style="color:#8690D8">1</b><b style="color:#858FD8">1</b><b style="color:#848FD7">0</b><b style="color:#838DD7">0</b><b style="color:#828ED8">1</b><b style="color:#838ED8">0</b><b style="color:#858ED9">0</b><b style="color:#828DD7">1</b><b style="color:#828DD8">1</b><b style="color:#828CD8">1</b><b style="color:#828CD7">0</b><b style="color:#808CD7">0</b><b style="color:#7F8BD8">0</b><b style="color:#808CD7">0</b><b style="color:#838DD6">1</b><b style="color:#8089D6">1</b><b style="color:#7E89D6">0</b><b style="color:#8189D7">1</b><b style="color:#818BD5">1</b><b style="color:#808CD6">0</b><b style="color:#818CD6">0</b><b style="color:#808CD7">1</b><b style="color:#7F8CD6">1</b><b style="color:#7F8BD8">0</b><b style="color:#7E8CD7">1</b><b style="color:#7F8DD8">1</b><b style="color:#7C8DD7">1</b><b style="color:#7F8ED7">1</b><b style="color:#7E8CD8">1</b><b style="color:#7E8BD7">0</b><b style="color:#7C8CD7">0</b><b style="color:#7B8CD7">1</b><b style="color:#7C8BD8">0</b><b style="color:#7E8BD6">0</b><b style="color:#7F8BD9">1</b><b style="color:#7F8DD9">0</b><b style="color:#8089D7">1</b><b style="color:#7E8CD8">0</b><b style="color:#808FD9">1</b><b style="color:#808ED7">0</b><b style="color:#8091D9">1</b><b style="color:#7F8FD7">0</b><b style="color:#7E90D9">0</b><b style="color:#8090D7">1</b><b style="color:#8090D9">0</b><b style="color:#8194D9">1</b><b style="color:#8291D8">0</b><b style="color:#828ED9">0</b><b style="color:#8090D9">1</b><b style="color:#8291D9">0</b><b style="color:#828FDA">1</b><b style="color:#7E91DB">1</b><b style="color:#7E91DA">1</b><b style="color:#8191D9">1</b><b style="color:#7E91D9">0</b><b style="color:#7E92DA">1</b><b style="color:#7D90DA">0</b><b style="color:#7A8BDA">1</b><b style="color:#778BDA">0</b><b style="color:#788AD9">1</b><b style="color:#7A8CD7">0</b><b style="color:#7A8BD9">1</b><b style="color:#7E8FDA">0</b><b style="color:#7D8ED8">01</b><b style="color:#7F8FD8">1</b><b style="color:#8694DD">1</b><b style="color:#8998DE">1</b><b style="color:#8998DD">0</b><b style="color:#8DA0E0">1</b>
+    <div class="content-container">
+        <h1><pre id="tiresult" style="font-size: 9px; background-color: #000000; font-weight: bold; padding: 4px 5px; --fs: 9px;"><b style="color:#8F97DD">1</b><b style="color:#8D99DB">0</b><b style="color:#8B95DC">1</b><b style="color:#8C95DC">1</b><b style="color:#8A94DA">1</b><b style="color:#8793D9">0</b><b style="color:#8592DB">1</b><b style="color:#8692DB">0</b><b style="color:#8493D9">1</b><b style="color:#8391DA">1</b><b style="color:#8690D8">1</b><b style="color:#858FD8">1</b><b style="color:#848FD7">0</b><b style="color:#838DD7">0</b><b style="color:#828ED8">1</b><b style="color:#838ED8">0</b><b style="color:#858ED9">0</b><b style="color:#828DD7">1</b><b style="color:#828DD8">1</b><b style="color:#828CD8">1</b><b style="color:#828CD7">0</b><b style="color:#808CD7">0</b><b style="color:#7F8BD8">0</b><b style="color:#808CD7">0</b><b style="color:#838DD6">1</b><b style="color:#8089D6">1</b><b style="color:#7E89D6">0</b><b style="color:#8189D7">1</b><b style="color:#818BD5">1</b><b style="color:#808CD6">0</b><b style="color:#818CD6">0</b><b style="color:#808CD7">1</b><b style="color:#7F8CD6">1</b><b style="color:#7F8BD8">0</b><b style="color:#7E8CD7">1</b><b style="color:#7F8DD8">1</b><b style="color:#7C8DD7">1</b><b style="color:#7F8ED7">1</b><b style="color:#7E8CD8">1</b><b style="color:#7E8BD7">0</b><b style="color:#7C8CD7">0</b><b style="color:#7B8CD7">1</b><b style="color:#7C8BD8">0</b><b style="color:#7E8BD6">0</b><b style="color:#7F8BD9">1</b><b style="color:#7F8DD9">0</b><b style="color:#8089D7">1</b><b style="color:#7E8CD8">0</b><b style="color:#808FD9">1</b><b style="color:#808ED7">0</b><b style="color:#8091D9">1</b><b style="color:#7F8FD7">0</b><b style="color:#7E90D9">0</b><b style="color:#8090D7">1</b><b style="color:#8090D9">0</b><b style="color:#8194D9">1</b><b style="color:#8291D8">0</b><b style="color:#828ED9">0</b><b style="color:#8090D9">1</b><b style="color:#8291D9">0</b><b style="color:#828FDA">1</b><b style="color:#7E91DB">1</b><b style="color:#7E91DA">1</b><b style="color:#8191D9">1</b><b style="color:#7E91D9">0</b><b style="color:#7E92DA">1</b><b style="color:#7D90DA">0</b><b style="color:#7A8BDA">1</b><b style="color:#778BDA">0</b><b style="color:#788AD9">1</b><b style="color:#7A8CD7">0</b><b style="color:#7A8BD9">1</b><b style="color:#7E8FDA">0</b><b style="color:#7D8ED8">01</b><b style="color:#7F8FD8">1</b><b style="color:#8694DD">1</b><b style="color:#8998DE">1</b><b style="color:#8998DD">0</b><b style="color:#8DA0E0">1</b>
 <b style="color:#8590D8">1</b><b style="color:#848FD7">0</b><b style="color:#838FD6">1</b><b style="color:#838DD8">0</b><b style="color:#828DD6">10</b><b style="color:#818ED5">0</b><b style="color:#818BD4">0</b><b style="color:#808CD3">1</b><b style="color:#7E8AD4">1</b><b style="color:#818BD4">0</b><b style="color:#828CD5">0</b><b style="color:#808AD5">1</b><b style="color:#818AD3">0</b><b style="color:#818AD5">1</b><b style="color:#818DD4">0</b><b style="color:#828BD6">0</b><b style="color:#828BD3">1</b><b style="color:#8189D3">1</b><b style="color:#8088D3">1</b><b style="color:#818AD3">0</b><b style="color:#7D86D2">1</b><b style="color:#7E87D1">0</b><b style="color:#7C85D2">0</b><b style="color:#7E85D2">0</b><b style="color:#7B82D3">0</b><b style="color:#7D82D2">0</b><b style="color:#7E83D3">0</b><b style="color:#7C85D2">0</b><b style="color:#7C84D2">0</b><b style="color:#7D84D1">1</b><b style="color:#7D86D2">0</b><b style="color:#7B87D1">1</b><b style="color:#7A86D2">0</b><b style="color:#7887D2">1</b><b style="color:#7C87D3">0</b><b style="color:#7988D1">1</b><b style="color:#7B89D2">0</b><b style="color:#7586D4">1</b><b style="color:#7986D3">1</b><b style="color:#7A86D3">0</b><b style="color:#7785D2">1</b><b style="color:#7886D3">1</b><b style="color:#7986D1">0</b><b style="color:#7883D3">0</b><b style="color:#7984D3">1</b><b style="color:#7B85D3">0</b><b style="color:#7986D3">0</b><b style="color:#7A87D2">1</b><b style="color:#7887D1">0</b><b style="color:#7988D4">0</b><b style="color:#7B89D3">0</b><b style="color:#7987D3">1</b><b style="color:#7887D3">1</b><b style="color:#7987D5">1</b><b style="color:#7B8AD4">0</b><b style="color:#7C8AD2">0</b><b style="color:#7A8BD4">0</b><b style="color:#7C8BD4">1</b><b style="color:#7F8CD4">1</b><b style="color:#7E89D5">1</b><b style="color:#7C89D5">0</b><b style="color:#7B89D5">1</b><b style="color:#7C88D8">0</b><b style="color:#7D8AD4">1</b><b style="color:#7B88D5">0</b><b style="color:#7D8FD7">0</b><b style="color:#7B8BD8">1</b><b style="color:#7887D4">1</b><b style="color:#7483D3">1</b><b style="color:#7485D2">1</b><b style="color:#7788D5">0</b><b style="color:#778AD7">0</b><b style="color:#7A89D6">0</b><b style="color:#798AD5">1</b><b style="color:#7A8AD4">0</b><b style="color:#7F8ED7">0</b><b style="color:#8290D8">1</b><b style="color:#8392DA">0</b><b style="color:#8696DA">0</b>
 <b style="color:#7F8DD6">1</b><b style="color:#7E8BD5">1</b><b style="color:#808AD4">1</b><b style="color:#7F89D4">1</b><b style="color:#7D87D4">1</b><b style="color:#7F88D3">1</b><b style="color:#7E89D3">1</b><b style="color:#7D88D3">0</b><b style="color:#7D88D2">0</b><b style="color:#7D88D3">0</b><b style="color:#7E85D2">0</b><b style="color:#8289D3">0</b><b style="color:#8188D3">0</b><b style="color:#818AD2">1</b><b style="color:#8289D4">1</b><b style="color:#828AD1">1</b><b style="color:#808BD4">1</b><b style="color:#818AD2">1</b><b style="color:#8088D3">0</b><b style="color:#7F87D2">0</b><b style="color:#7F86D2">1</b><b style="color:#7F88D2">1</b><b style="color:#7D85D2">01</b><b style="color:#7C82D1">0</b><b style="color:#7B83D3">00</b><b style="color:#7C82D2">0</b><b style="color:#7B82D1">1</b><b style="color:#7A83D2">1</b><b style="color:#7C85D0">0</b><b style="color:#7A84D2">1</b><b style="color:#7A87D1">0</b><b style="color:#7987D2">0</b><b style="color:#7887D1">0</b><b style="color:#7887D3">0</b><b style="color:#7988D1">0</b><b style="color:#7886D2">0</b><b style="color:#7686D3">0</b><b style="color:#7786D2">1</b><b style="color:#7684D2">1</b><b style="color:#7684D1">1</b><b style="color:#7783D2">0</b><b style="color:#7584D1">0</b><b style="color:#7580D2">0</b><b style="color:#7881D2">0</b><b style="color:#7781D2">1</b><b style="color:#7784D2">0</b><b style="color:#7683D0">1</b><b style="color:#7783D0">1</b><b style="color:#7784D1">0</b><b style="color:#7785D2">0</b><b style="color:#7884D3">1</b><b style="color:#7685D1">1</b><b style="color:#7886D3">1</b><b style="color:#7985D3">0</b><b style="color:#7886D1">0</b><b style="color:#7B89D3">0</b><b style="color:#7987D4">0</b><b style="color:#7D89D4">1</b><b style="color:#7B88D4">1</b><b style="color:#7986D3">0</b><b style="color:#7A85D3">0</b><b style="color:#7B85D4">1</b><b style="color:#7783D3">0</b><b style="color:#7985D2">0</b><b style="color:#7583D3">0</b><b style="color:#7686D7">1</b><b style="color:#7D92DA">1</b><b style="color:#7588D5">0</b><b style="color:#7383D1">0</b><b style="color:#7684D3">1</b><b style="color:#7383D3">1</b><b style="color:#7584D4">1</b><b style="color:#7484D4">0</b><b style="color:#7585D3">1</b><b style="color:#7B8BD6">0</b><b style="color:#7D8AD4">0</b><b style="color:#7F8CD5">0</b><b style="color:#8393D8">1</b>
 <b style="color:#7A83CF">0</b><b style="color:#7A82D0">1</b><b style="color:#7982CF">0</b><b style="color:#7A81CF">1</b><b style="color:#7B82D0">0</b><b style="color:#7982CE">0</b><b style="color:#7982CF">1</b><b style="color:#7880CE">11</b><b style="color:#7981CF">1</b><b style="color:#797FCD">0</b><b style="color:#7D83CE">1</b><b style="color:#7B82CF">1</b><b style="color:#7C82CD">1</b><b style="color:#7E83CE">1</b><b style="color:#7F86CE">0</b><b style="color:#7D86CF">1</b><b style="color:#7D86CE">1</b><b style="color:#7D83CE">1</b><b style="color:#7D83CD">0</b><b style="color:#7C81CD">1</b><b style="color:#7C81CF">1</b><b style="color:#7B81CF">1</b><b style="color:#7980CF">0</b><b style="color:#7A81CE">1</b><b style="color:#7780D0">0</b><b style="color:#7980CF">1</b><b style="color:#777FD0">0</b><b style="color:#7880CF">0</b><b style="color:#787FCF">0</b><b style="color:#7981CF">1</b><b style="color:#7680CF">1</b><b style="color:#7684CE">0</b><b style="color:#7382CF">0</b><b style="color:#7683CE">0</b><b style="color:#7682CE">0</b><b style="color:#7483CE">01</b><b style="color:#7281CF">0</b><b style="color:#7280CD">1</b><b style="color:#717ECE">0</b><b style="color:#7380D0">1</b><b style="color:#727ECF">1</b><b style="color:#727DCD">1</b><b style="color:#727CCF">0</b><b style="color:#727DD0">1</b><b style="color:#747ECF">0</b><b style="color:#727ECF">1</b><b style="color:#727FCF">0</b><b style="color:#7580CE">1</b><b style="color:#757ECE">1</b><b style="color:#747FD0">0</b><b style="color:#7681D0">1</b><b style="color:#7481CE">0</b><b style="color:#7782D1">1</b><b style="color:#7781D1">0</b><b style="color:#7683CF">1</b><b style="color:#7783D0">1</b><b style="color:#7883D0">1</b><b style="color:#7783D0">0</b><b style="color:#7B86D0">0</b><b style="color:#7782CF">0</b><b style="color:#757FCF">1</b><b style="color:#7680D1">1</b><b style="color:#767FD0">1</b><b style="color:#757ECF">0</b><b style="color:#717CCE">1</b><b style="color:#7178D1">0</b><b style="color:#707CD1">1</b><b style="color:#707FD5">1</b><b style="color:#7082D4">1</b><b style="color:#717DD1">0</b><b style="color:#717DCF">1</b><b style="color:#717FCD">1</b><b style="color:#707CCD">0</b><b style="color:#7781CE">1</b><b style="color:#7885D2">1</b><b style="color:#7884D1">0</b><b style="color:#7C85D2">0</b><b style="color:#808CD5">1</b>
@@ -83,9 +144,52 @@ DOCTYPE html>
 <b style="color:#8697D7">1</b><b style="color:#8597D7">0</b><b style="color:#8595D7">1</b><b style="color:#7F92D7">1</b><b style="color:#8497D7">1</b><b style="color:#8495D4">1</b><b style="color:#8195D5">1</b><b style="color:#8395D6">1</b><b style="color:#8598D6">0</b><b style="color:#879BD7">1</b><b style="color:#899BD6">1</b><b style="color:#5D85E1">1</b><b style="color:#0E26C2">0</b><b style="color:#3A2054">0</b><b style="color:#B28D5E">1</b><b style="color:#D4C09A">0</b><b style="color:#CDBCA7">0</b><b style="color:#CBB99F">0</b><b style="color:#C9B79C">0</b><b style="color:#C9B79E">1</b><b style="color:#C7B69E">1</b><b style="color:#C7B59D">1</b><b style="color:#C7B49D">1</b><b style="color:#C6B69D">0</b><b style="color:#C6B9A2">0</b><b style="color:#A49DAF">0</b><b style="color:#847CAE">1</b><b style="color:#8E7FA8">1</b><b style="color:#978DB5">0</b><b style="color:#9090BD">1</b><b style="color:#636AAA">0</b><b style="color:#D2B094">1</b><b style="color:#E0D1C0">0</b><b style="color:#E0D0BB">0</b><b style="color:#E6D5BE">0</b><b style="color:#AAC5D8">0</b><b style="color:#9665AC">1</b><b style="color:#E6432E">1</b><b style="color:#E24E30">0</b><b style="color:#E57D63">1</b><b style="color:#E9A374">1</b><b style="color:#EFC397">0</b><b style="color:#E9B591">0</b><b style="color:#F0CCA6">1</b><b style="color:#EBBEA7">1</b><b style="color:#E28379">0</b><b style="color:#C24448">1</b><b style="color:#B3312F">1</b><b style="color:#C67F63">0</b><b style="color:#B3B8D4">0</b><b style="color:#C0AFCB">0</b><b style="color:#B9B1D2">1</b><b style="color:#B9B3D1">1</b><b style="color:#A3A8D3">1</b><b style="color:#6B7CC0">0</b><b style="color:#4A5596">1</b><b style="color:#53528A">0</b><b style="color:#4A4E91">1</b><b style="color:#313C8D">1</b><b style="color:#1F2B82">0</b><b style="color:#34387A">1</b><b style="color:#394185">1</b><b style="color:#273690">0</b><b style="color:#282E96">1</b><b style="color:#413F94">1</b><b style="color:#6A61A2">0</b><b style="color:#8081BC">1</b><b style="color:#7B88D1">1</b><b style="color:#7888D1">0</b><b style="color:#7985CE">0</b><b style="color:#7A87CF">0</b><b style="color:#7988D1">0</b><b style="color:#7A87D0">1</b><b style="color:#7C89D1">0</b><b style="color:#7F8FD2">0</b><b style="color:#8191D4">1</b><b style="color:#8594D6">0</b><b style="color:#8899D7">0</b><b style="color:#8B9BD7">0</b><b style="color:#8C9EDA">1</b>
 <b style="color:#8A9AD8">0</b><b style="color:#899BDA">0</b><b style="color:#879AD6">1</b><b style="color:#8594D6">0</b><b style="color:#8798D8">0</b><b style="color:#8898D8">1</b><b style="color:#8799D8">0</b><b style="color:#889BD9">1</b><b style="color:#889BDA">1</b><b style="color:#8DA1DA">1</b><b style="color:#7E9DDE">1</b><b style="color:#1C47D8">0</b><b style="color:#3D256A">1</b><b style="color:#C49957">1</b><b style="color:#D7C9A5">1</b><b style="color:#D0C2A5">1</b><b style="color:#CEBCA2">1</b><b style="color:#CDBAA0">0</b><b style="color:#CCB9A1">1</b><b style="color:#CAB7A3">0</b><b style="color:#C9B6A0">0</b><b style="color:#C8B59E">0</b><b style="color:#C5B3A2">1</b><b style="color:#B4A8AD">0</b><b style="color:#9B90B0">0</b><b style="color:#8D84AB">1</b><b style="color:#8D81AC">1</b><b style="color:#9084B3">0</b><b style="color:#958CB8">1</b><b style="color:#9F95BD">0</b><b style="color:#847DB5">0</b><b style="color:#CBAD9A">0</b><b style="color:#E2D3BE">0</b><b style="color:#E1D1BE">1</b><b style="color:#E3D7C0">1</b><b style="color:#94BDE5">1</b><b style="color:#B96395">0</b><b style="color:#F54E1D">1</b><b style="color:#E2442F">0</b><b style="color:#EA995B">1</b><b style="color:#F0C793">1</b><b style="color:#F2D3AE">0</b><b style="color:#EDCCAB">1</b><b style="color:#ECC49F">1</b><b style="color:#E9B07B">0</b><b style="color:#E27958">1</b><b style="color:#C43B3A">0</b><b style="color:#C34038">1</b><b style="color:#CF5940">0</b><b style="color:#7F83AD">1</b><b style="color:#A09095">1</b><b style="color:#C4BAD2">0</b><b style="color:#C2BBDA">0</b><b style="color:#C1B9D5">1</b><b style="color:#BEB8D4">1</b><b style="color:#B9B7D4">1</b><b style="color:#B4B2CE">1</b><b style="color:#B2AEC9">0</b><b style="color:#A7A0CA">0</b><b style="color:#9B96C6">1</b><b style="color:#9791BB">1</b><b style="color:#9896B1">1</b><b style="color:#97989D">1</b><b style="color:#85929E">0</b><b style="color:#3B60A3">1</b><b style="color:#0F1468">1</b><b style="color:#2E2363">1</b><b style="color:#826F8F">1</b><b style="color:#8A8FC7">1</b><b style="color:#808FD6">1</b><b style="color:#818FD3">1</b><b style="color:#818ED4">0</b><b style="color:#7F8ED3">0</b><b style="color:#8693D5">1</b><b style="color:#8797D7">0</b><b style="color:#8A9AD9">1</b><b style="color:#8B98D9">0</b><b style="color:#8D9DDA">1</b><b style="color:#90A0DA">0</b><b style="color:#8E9EDB">0</b>
 </pre></h1>
-    <p>With margins roughly one-fifth of the screen around it.</p>
-    <p>You can add more HTML elements here.</p>
-  </div>
+        <p>This is some example content that will be displayed over the GIF background.</p>
+        <p>You can add more HTML elements here as needed.</p>
+    </div>
 
+    <div id="comment-icon" onclick="toggleCommentWindow()">💬</div>
+
+    <div id="comment-window">
+        <h3>Leave a Comment:</h3>
+        <textarea id="comment-input-area" placeholder="Type your comment here..."></textarea>
+        <button id="submit-comment-btn" onclick="addComment()">Submit</button>
+        <div id="comments-display">
+            </div>
+    </div>
+
+    <script>
+        const commentWindow = document.getElementById('comment-window');
+        const commentIcon = document.getElementById('comment-icon');
+        const commentInput = document.getElementById('comment-input-area');
+        const commentsDisplay = document.getElementById('comments-display');
+        let comments = []; // Array to store comments (will be lost on page reload)
+
+        function toggleCommentWindow() {
+            commentWindow.style.display = commentWindow.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function addComment() {
+            const commentText = commentInput.value.trim();
+            if (commentText !== "") {
+                comments.push(commentText);
+                displayComments();
+                commentInput.value = ""; // Clear the input field
+            }
+        }
+
+        function displayComments() {
+            commentsDisplay.innerHTML = ""; // Clear previous comments
+            comments.forEach(comment => {
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+                commentDiv.textContent = comment;
+                commentsDisplay.appendChild(commentDiv);
+            });
+        }
+
+        // Initially display any existing comments (if you were to implement storage)
+        displayComments();
+    </script>
 </body>
-</html
+</html>
