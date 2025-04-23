@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Background with Comments</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/90/25/63/902563cf54d7164b76b5299922dca160.gif'); /* Replace with your GIF file path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* To position the comment icon */
+        }
+
+        #comment-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            /*background-color: #333;*/ /* Removed background color */
+            /*color: #f9a7b0;  Pastel pink */ /* Removed text color */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            /*font-size: 20px;*/ /* Removed font-size */
+            z-index: 10; /* Ensure it's on top */
+        }
+
+        /* Added image as background for comment icon */
+        #comment-icon::before {
+            content: "";
+            background-image: https://f4.bcbits.com/img/0033780333_10.jpg
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        #comment-window {
+            position: fixed;
+            bottom: 65px;
+            right: 20px;
+            background-color: black;
+            color: #f9a7b0; /* Pastel pink */
+            border: 1px solid #f9a7b0;
+            border-radius: 5px;
+            padding: 10px;
+            width: 250px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            gap: 5px;
+            z-index: 10;
+        }
+
+        #comment-input-area {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 5px;
+            border: 1px solid #f9a7b0;
+            border-radius: 3px;
+            background-color: #222;
+            color: #f9a7b0;
+            box-sizing: border-box; /* Prevent padding from increasing width */
+            font-size: 14px;
+        }
+
+        #submit-comment-btn {
+            background-color: #555;
+            color: #f9a7b0;
+            border: none;
+            border-radius: 3px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #submit-comment-btn:hover {
+            background-color: #777;
+        }
+
+        .comment {
+            border-bottom: 1px solid #555;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="comment-icon" onclick="toggleCommentWindow()"></div>
+
+    <div id="comment-window">
+        <h3>Leave a Comment:</h3>
+        <textarea id="comment-input-area" placeholder="Type your comment here..."></textarea>
+        <button id="submit-comment-btn" onclick="addComment()">Submit</button>
+        <div id="comments-display">
+            </div>
+    </div>
+
+    <script>
+        const commentWindow = document.getElementById('comment-window');
+        const commentIcon = document.getElementById('comment-icon');
+        const commentInput = document.getElementById('comment-input-area');
+        const commentsDisplay = document.getElementById('comments-display');
+        let comments = []; // Array to store comments (will be lost on page reload)
+
+        function toggleCommentWindow() {
+            commentWindow.style.display = commentWindow.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function addComment() {
+            const commentText = commentInput.value.trim();
+            if (commentText !== "") {
+                comments.push(commentText);
+                displayComments();
+                commentInput.value = ""; // Clear the input field
+            }
+        }
+
+        function displayComments() {
+            commentsDisplay.innerHTML = ""; // Clear previous comments
+            comments.forEach(comment => {
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+                commentDiv.textContent = comment;
+                commentsDisplay.appendChild(commentDiv);
+            });
+        }
+
+        // Initially display any existing comments (if you were to implement storage)
+        displayComments();
+    </script>
+</body>
+</html>
