@@ -9,22 +9,25 @@
       margin: 0;
       padding: 0;
       height: 100vh; /* Full viewport height */
+      width: 100vw; /* Full viewport width */
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: Arial, sans-serif;
       background: url('https://i.pinimg.com/originals/90/25/63/902563cf54d7164b76b5299922dca160.gif') no-repeat center center fixed; /* Replace with your GIF URL */
       background-size: cover; /* Ensures the GIF covers the entire screen */
+      overflow: hidden; /* Prevents scrollbars if the GIF overflows */
     }
 
     .content {
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+      background-color: white; /* Solid background color ensures visibility */
       padding: 20px;
       border-radius: 10px;
       max-width: 600px;
       width: 100%; /* Make it responsive */
       text-align: center;
-      color: white;
+      color: black; /* Text color for contrast */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
     }
   </style>
 </head>
